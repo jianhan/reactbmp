@@ -1,18 +1,10 @@
-import React from 'react';
+import React from 'react'
+import SidebarParent from './SideBarParent'
 
-export default class FixedSideBar extends React.Component {
+export default class FixedSideBar extends SidebarParent {
 
     constructor(props) {
         super(props)
-        this.state = {open: false}
-        this.openCloseClicked = this.openCloseClicked.bind(this)
-    }
-
-    openCloseClicked(e) {
-        e.preventDefault()
-        this.setState({
-            open: !this.state.open
-        })
     }
 
     render() {

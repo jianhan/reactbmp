@@ -1,16 +1,17 @@
-import React from 'react';
+import React from 'react'
+import SidebarParent from './SideBarParent'
 
-export default class FixedSideBarResponsive extends React.Component {
+export default class FixedSideBarResponsive extends SidebarParent {
 
     constructor(props) {
         super(props)
     }
 
     render() {
-        return <div className="fixed-sidebar fixed-sidebar-responsive">
+        return <div className={["fixed-sidebar", "fixed-sidebar-responsive", this.state.open ? "open" : ""].join(' ')}>
 
             <div className="fixed-sidebar-left sidebar--small" id="sidebar-left-responsive">
-                <a href="03-Newsfeed.html#" className="logo js-sidebar-open">
+                <a href="03-Newsfeed.html#" className="logo js-sidebar-open" onClick={this.openCloseClicked}>
                     <img src="img/logo.png" alt="Olympus"/>
                 </a>
 
@@ -130,3 +131,4 @@ export default class FixedSideBarResponsive extends React.Component {
         </div>
     }
 }
+
