@@ -5,10 +5,10 @@ export default class SideBarParent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {open: false}
-        this.openCloseClicked = this.openCloseClicked.bind(this)
+        this.toggle = this.toggle.bind(this)
     }
 
-    openCloseClicked(e) {
+    toggle(e) {
         e.preventDefault()
         this.setState({
             open: !this.state.open

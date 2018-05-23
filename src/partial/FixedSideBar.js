@@ -19,7 +19,7 @@ export default class FixedSideBar extends SidebarParent {
                 <div className="mCustomScrollbar" data-mcs-theme="dark">
                     <ul className="left-menu">
                         <li>
-                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.openCloseClicked}>
+                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.toggle}>
                                 <svg className="olymp-menu-icon left-menu-icon" data-toggle="tooltip"
                                      data-placement="right"
                                      data-original-title="OPEN MENU">
@@ -53,7 +53,7 @@ export default class FixedSideBar extends SidebarParent {
                 <div className="mCustomScrollbar" data-mcs-theme="dark">
                     <ul className="left-menu">
                         <li>
-                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.openCloseClicked}>
+                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.toggle}>
                                 <svg className="olymp-close-icon left-menu-icon">
                                     <use xlinkHref="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
                                 </svg>
