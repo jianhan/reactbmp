@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import FixedSideBar from './partial/FixedSideBar'
 import FixedSideBarResponsive from './partial/FixedSideBarResponsive'
+import Header from './partial/Header'
 
 class App extends Component {
     render() {
@@ -9,6 +10,7 @@ class App extends Component {
             <div className="App">
                 <FixedSideBar/>
                 <FixedSideBarResponsive/>
+                <Header/>
             </div>
         );
     }
