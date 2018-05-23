@@ -3,6 +3,7 @@ import './App.css';
 import FixedSideBar from './partial/FixedSideBar'
 import FixedSideBarResponsive from './partial/FixedSideBarResponsive'
 import Header from './partial/Header'
+import HeaderResponsive from './partial/HeaderResponsive'
 
 class App extends Component {
     render() {
@@ -11,6 +12,7 @@ class App extends Component {
                 <FixedSideBar/>
                 <FixedSideBarResponsive/>
                 <Header/>
+                <HeaderResponsive/>
             </div>
         );
     }
