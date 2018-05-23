@@ -4,12 +4,20 @@ export default class FixedSideBar extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {open: false}
+        this.openCloseClicked = this.openCloseClicked.bind(this)
+    }
+
+    openCloseClicked(e) {
+        e.preventDefault()
+        this.setState({
+            open: !this.state.open
+        })
     }
 
     render() {
-        return <div className="fixed-sidebar">
+        return <div className={["fixed-sidebar", this.state.open ? "open" : ""].join(' ')}>
             <div className="fixed-sidebar-left sidebar--small" id="sidebar-left">
-
                 <a href="02-ProfilePage.html" className="logo">
                     <div className="img-wrap">
                         <img src="img/logo.png" alt="Olympus"/>
@@ -19,7 +27,7 @@ export default class FixedSideBar extends React.Component {
                 <div className="mCustomScrollbar" data-mcs-theme="dark">
                     <ul className="left-menu">
                         <li>
-                            <a href="03-Newsfeed.html#" className="js-sidebar-open">
+                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.openCloseClicked}>
                                 <svg className="olymp-menu-icon left-menu-icon" data-toggle="tooltip"
                                      data-placement="right"
                                      data-original-title="OPEN MENU">
@@ -53,7 +61,7 @@ export default class FixedSideBar extends React.Component {
                 <div className="mCustomScrollbar" data-mcs-theme="dark">
                     <ul className="left-menu">
                         <li>
-                            <a href="03-Newsfeed.html#" className="js-sidebar-open">
+                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.openCloseClicked}>
                                 <svg className="olymp-close-icon left-menu-icon">
                                     <use xlinkHref="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
                                 </svg>

@@ -7,16 +7,14 @@ export default class HeaderResponsive extends React.Component {
     }
 
     render() {
-        return <header class="header header-responsive" id="site-header-responsive">
-            <div class="header-content-wrapper">
-                <ul class="nav nav-tabs mobile-app-tabs" role="tablist">
+        return <header className="header header-responsive" id="site-header-responsive">
+            <div className="header-content-wrapper">
+                <ul className="nav nav-tabs mobile-app-tabs" role="tablist">
 
                 </ul>
             </div>
-            <!-- Tab panes -->
-
-            <!-- ... end  Tab panes -->
-
+            {/* Tab panes */}
+            {/* end Tab panes */}
         </header>
     }
 }
