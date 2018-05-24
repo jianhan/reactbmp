@@ -3,20 +3,16 @@ import {BrowserRouter as Router, Route} from "react-router-dom"
 import Header from './partial/Header'
 import HeaderResponsive from './partial/HeaderResponsive'
 import {routes} from './route/configs'
+import FixedSideBar from './partial/FixedSideBar'
+import FixedSideBarResponsive from './partial/FixedSideBarResponsive'
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="App">
-                    {routes.map((route, index) => (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            exact={route.exact}
-                            component={route.sidebar}
-                        />
-                    ))}
+                    <FixedSideBar/>
+                    <FixedSideBarResponsive/>
                     <Header/>
                     <HeaderResponsive/>
                     <div className="header-spacer"></div>

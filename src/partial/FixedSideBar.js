@@ -25,6 +25,7 @@ export default class FixedSideBar extends FixedSidebarParent {
                                      data-original-title="OPEN MENU">
                                     <use xlinkHref="svg-icons/sprites/icons.svg#olymp-menu-icon"></use>
                                 </svg>
+                                <span className="left-menu-title">Close</span>
                             </a>
                         </li>
                         <li>
@@ -35,6 +36,7 @@ export default class FixedSideBar extends FixedSidebarParent {
                                      data-original-title="Authenticate">
                                     <use xlinkHref="svg-icons/sprites/icons.svg#olymp-manage-widgets-icon"></use>
                                 </svg>
+                                <span className="left-menu-title">Login</span>
                             </Link>
                         </li>
                     </ul>

@@ -27,40 +27,19 @@ export default class FixedSideBarResponsive extends FixedSidebarParent {
                 </a>
 
                 <div className="mCustomScrollbar" data-mcs-theme="dark">
-
-                    <div className="control-block">
-                        <div className="author-page author vcard inline-items">
-                            <div className="author-thumb">
-                                <img alt="author" src="img/author-page.jpg" className="avatar"/>
-                                <span className="icon-status online"></span>
-                            </div>
-                            <a href="02-ProfilePage.html" className="author-name fn">
-                                <div className="author-title">
-                                    James Spiegel
-                                    <svg className="olymp-dropdown-arrow-icon">
-                                        <use xlinkHref="svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use>
-                                    </svg>
-                                </div>
-                                <span className="author-subtitle">SPACE COWBOY</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="ui-block-title ui-block-title-small">
-                        <h6 className="title">MAIN SECTIONS</h6>
-                    </div>
-
                     <ul className="left-menu">
                         <li>
-                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.toggle}>
-                                <svg className="olymp-close-icon left-menu-icon">
-                                    <use xlinkHref="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
+                            <a href="#" className="js-sidebar-open" onClick={this.toggle}>
+                                <svg className="olymp-menu-icon left-menu-icon" data-toggle="tooltip"
+                                     data-placement="right"
+                                     data-original-title="OPEN MENU">
+                                    <use xlinkHref="svg-icons/sprites/icons.svg#olymp-menu-icon"></use>
                                 </svg>
                                 <span className="left-menu-title">Close</span>
                             </a>
                         </li>
                         <li>
-                            <Link to="/auth" onClick={this.toggle}>
+                            <Link to="/auth">
                                 <svg className="olymp-newsfeed-icon left-menu-icon"
                                      data-toggle="tooltip"
                                      data-placement="right"
