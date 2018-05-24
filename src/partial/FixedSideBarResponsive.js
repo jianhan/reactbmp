@@ -1,7 +1,7 @@
 import React from 'react'
-import SidebarParent from './SideBarParent'
+import FixedSidebarParent from './FixedSideBarParent'
 
-export default class FixedSideBarResponsive extends SidebarParent {
+export default class FixedSideBarResponsive extends FixedSidebarParent {
 
     constructor(props) {
         super(props)

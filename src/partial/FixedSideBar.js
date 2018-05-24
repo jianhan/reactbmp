@@ -1,7 +1,8 @@
 import React from 'react'
-import SidebarParent from './SideBarParent'
+import {Link} from "react-router-dom";
+import FixedSidebarParent from './FixedSideBarParent'
 
-export default class FixedSideBar extends SidebarParent {
+export default class FixedSideBar extends FixedSidebarParent {
 
     constructor(props) {
         super(props)
@@ -10,16 +11,16 @@ export default class FixedSideBar extends SidebarParent {
     render() {
         return <div className={["fixed-sidebar", this.state.open ? "open" : ""].join(' ')}>
             <div className="fixed-sidebar-left sidebar--small" id="sidebar-left">
-                <a href="02-ProfilePage.html" className="logo">
+                <Link to="/" href="02-ProfilePage.html" className="logo">
                     <div className="img-wrap">
                         <img src="img/logo.png" alt="Olympus"/>
                     </div>
-                </a>
+                </Link>
 
                 <div className="mCustomScrollbar" data-mcs-theme="dark">
                     <ul className="left-menu">
                         <li>
-                            <a href="03-Newsfeed.html#" className="js-sidebar-open" onClick={this.toggle}>
+                            <a href="#" className="js-sidebar-open" onClick={this.toggle}>
                                 <svg className="olymp-menu-icon left-menu-icon" data-toggle="tooltip"
                                      data-placement="right"
                                      data-original-title="OPEN MENU">
@@ -71,26 +72,6 @@ export default class FixedSideBar extends SidebarParent {
                             </a>
                         </li>
                     </ul>
-
-                    <div className="profile-completion">
-
-                        <div className="skills-item">
-                            <div className="skills-item-info">
-                                <span className="skills-item-title">Profile Completion</span>
-                                <span className="skills-item-count"><span className="count-animate" data-speed="1000"
-                                                                          data-refresh-interval="50" data-to="76"
-                                                                          data-from="0"></span><span
-                                    className="units">76%</span></span>
-                            </div>
-                            <div className="skills-item-meter">
-                                <span className="skills-item-meter-active bg-primary" style={{width: '76%'}}></span>
-                            </div>
-                        </div>
-
-                        <span>Complete <a
-                            href="03-Newsfeed.html#">your profile</a> so people can know more about you!</span>
-
-                    </div>
                 </div>
             </div>
         </div>
