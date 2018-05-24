@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 import FixedSidebarParent from './FixedSideBarParent'
 
 export default class FixedSideBarResponsive extends FixedSidebarParent {
@@ -9,12 +10,10 @@ export default class FixedSideBarResponsive extends FixedSidebarParent {
 
     render() {
         return <div className={["fixed-sidebar", "fixed-sidebar-responsive", this.state.open ? "open" : ""].join(' ')}>
-
             <div className="fixed-sidebar-left sidebar--small" id="sidebar-left-responsive">
                 <a href="03-Newsfeed.html#" className="logo js-sidebar-open" onClick={this.toggle}>
                     <img src="img/logo.png" alt="Olympus"/>
                 </a>
-
             </div>
 
             <div className="fixed-sidebar-left sidebar--large" id="sidebar-left-1-responsive">
@@ -57,75 +56,21 @@ export default class FixedSideBarResponsive extends FixedSidebarParent {
                                 <svg className="olymp-close-icon left-menu-icon">
                                     <use xlinkHref="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
                                 </svg>
-                                <span className="left-menu-title">Collapse Menu</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div className="ui-block-title ui-block-title-small">
-                        <h6 className="title">YOUR ACCOUNT</h6>
-                    </div>
-
-                    <ul className="account-settings">
-                        <li>
-                            <a href="03-Newsfeed.html#">
-
-                                <svg className="olymp-menu-icon">
-                                    <use xlinkHref="svg-icons/sprites/icons.svg#olymp-menu-icon"></use>
-                                </svg>
-
-                                <span>Profile Settings</span>
+                                <span className="left-menu-title">Close</span>
                             </a>
                         </li>
                         <li>
-                            <a href="03-Newsfeed.html#">
-                                <svg className="olymp-star-icon left-menu-icon" data-toggle="tooltip"
+                            <Link to="/auth" onClick={this.toggle}>
+                                <svg className="olymp-newsfeed-icon left-menu-icon"
+                                     data-toggle="tooltip"
                                      data-placement="right"
-                                     data-original-title="FAV PAGE">
-                                    <use xlinkHref="svg-icons/sprites/icons.svg#olymp-star-icon"></use>
+                                     data-original-title="Authenticate">
+                                    <use xlinkHref="svg-icons/sprites/icons.svg#olymp-manage-widgets-icon"></use>
                                 </svg>
-
-                                <span>Create Fav Page</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="03-Newsfeed.html#">
-                                <svg className="olymp-logout-icon">
-                                    <use xlinkHref="svg-icons/sprites/icons.svg#olymp-logout-icon"></use>
-                                </svg>
-
-                                <span>Log Out</span>
-                            </a>
+                                <span className="left-menu-title">Login</span>
+                            </Link>
                         </li>
                     </ul>
-
-                    <div className="ui-block-title ui-block-title-small">
-                        <h6 className="title">About Olympus</h6>
-                    </div>
-
-                    <ul className="about-olympus">
-                        <li>
-                            <a href="03-Newsfeed.html#">
-                                <span>Terms and Conditions</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="03-Newsfeed.html#">
-                                <span>FAQs</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="03-Newsfeed.html#">
-                                <span>Careers</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="03-Newsfeed.html#">
-                                <span>Contact</span>
-                            </a>
-                        </li>
-                    </ul>
-
                 </div>
             </div>
         </div>

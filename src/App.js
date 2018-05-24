@@ -1,23 +1,29 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router} from "react-router-dom"
-import FixedSideBar from './partial/FixedSideBar'
-import FixedSideBarResponsive from './partial/FixedSideBarResponsive'
+import {BrowserRouter as Router, Route} from "react-router-dom"
 import Header from './partial/Header'
 import HeaderResponsive from './partial/HeaderResponsive'
-import {routes, RouteWrapper} from './route/configs'
+import {routes} from './route/configs'
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="App">
-                    <FixedSideBar/>
-                    <FixedSideBarResponsive/>
+                    {routes.map((route, index) => (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            exact={route.exact}
+                            component={route.sidebar}
+                        />
+                    ))}
                     <Header/>
                     <HeaderResponsive/>
                     <div className="header-spacer"></div>
                     <div className="container">
-                        {routes.map((route, i) => <RouteWrapper key={i} {...route} />)}
+                        {routes.map((route, index) => (
+                            <Route path={route.path} key={index} exact={route.exact} component={route.component}/>
+                        ))}
                     </div>
                 </div>
             </Router>
