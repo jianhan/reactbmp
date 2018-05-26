@@ -20,6 +20,25 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- Main Font -->
+    <script src="%PUBLIC_URL%/js/webfontloader.min.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Roboto:300,400,500,700:latin']
+            }
+        });
+    </script>
+    <!--font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/Bootstrap/dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/Bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/Bootstrap/dist/css/bootstrap-grid.css">
+    <!-- Main Styles CSS -->
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/css/main.min.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/css/fonts.min.css">
     <title>React App</title>
 </head>
 <body>
@@ -27,6 +46,7 @@
     You need to enable JavaScript to run this app.
 </noscript>
 <div id="root"></div>
+
 <!--
   This HTML file is a template.
   If you open it directly in the browser, you will see an empty page.

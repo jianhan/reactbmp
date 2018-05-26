@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import Header from './partial/Header'
-import HeaderResponsive from './partial/HeaderResponsive'
+import Header from './layout/Header'
+import HeaderResponsive from './layout/HeaderResponsive'
 import {routes} from './route/configs'
-import FixedSideBar from './partial/FixedSideBar'
-import FixedSideBarResponsive from './partial/FixedSideBarResponsive'
+import FixedSideBar from './layout/FixedSideBar'
+import FixedSideBarResponsive from './layout/FixedSideBarResponsive'
 
 class App extends Component {
     render() {

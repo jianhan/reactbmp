@@ -1,6 +1,6 @@
 import React from 'react'
-import Home from '../page/Home'
-import Auth from '../page/Auth'
+import Home from '../pages/Home'
+import Auth from '../pages/Auth'
 
 export const routes = [
     {
