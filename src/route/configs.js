@@ -15,9 +15,8 @@ export const routes = [
         component: Auth,
     },
     {
-        path: "/callback/:name/:avatar/:email/:token",
+        path: "/authcallback/:access_token/:expire_at?/:refresh_token?",
         component: AuthCallback,
-
     },
 ]
 

@@ -1,9 +1,18 @@
 import React from 'react'
 
-const AuthCallback = ({match}) => (
-    <div>
-        <h3>ID: {match.params.name}</h3>
-    </div>
-);
+export default class AuthCallback extends React.Component {
 
-export default AuthCallback
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return <div>
+            <h3>ID: {this.props.match.params.access_token}</h3>
+        </div>
+    }
+
+    componentDidMount() {
+    }
+
+}
