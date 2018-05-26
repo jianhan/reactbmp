@@ -1,6 +1,4 @@
 import * as moment from 'moment'
-import {PASSPORT_CLIENT_ID, PASSPORT_CLIENT_SECRET, PASSPORT_OAUTH_TOKEN_URL} from '../.env'
-import {errorMsg, http} from './Http'
 import _ from 'lodash'
 
 export function isAuthenticated() {
@@ -39,17 +37,20 @@ export function clearAuthData() {
     localStorage.removeItem('user')
 }
 
-export function setAuthData(accessToken, expireIn = false, refreshToken = false, user = {}) {
+export function setAuthData(accessToken, user = {}, expireIn = false, refreshToken = false) {
+    if (accessToken == '') {
+        throw 'Empty access token'
+    }
+    if (_.isEmpty(user)) {
+        throw 'Empty user'
+    }
     localStorage.setItem('access_token', accessToken)
+    localStorage.setItem('user', JSON.stringify(user))
     if (expireIn) {
         localStorage.setItem('expire_at', moment().unix() + expireIn)
     }
     if (refreshToken) {
         localStorage.setItem('refresh_token', refreshToken)
-    }
-
-    if (!_.isEmpty(user)) {
-        localStorage.setItem('user', JSON.stringify(user))
     }
 }
 
