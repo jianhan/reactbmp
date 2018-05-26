@@ -1,4 +1,4 @@
-import * as ats from '../actions/actionTypes'
+import * as ats from '../_actions/actionTypes'
 
 const toggleSidebar = (state = true, action) => {
     switch (action.type) {

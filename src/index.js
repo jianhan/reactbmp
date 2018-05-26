@@ -4,7 +4,7 @@ import './index.css';
 import Root from './Root'
 import {createStore} from 'redux'
 import registerServiceWorker from './registerServiceWorker'
-import rootReducer from './reducers/index'
+import rootReducer from './_reducers/index'
 
 const store = createStore(rootReducer)
 

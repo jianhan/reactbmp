@@ -4,7 +4,7 @@ import Header from './layout/Header'
 import HeaderResponsive from './layout/HeaderResponsive'
 import FixedSideBar from './layout/FixedSideBar'
 import FixedSideBarResponsive from './layout/FixedSideBarResponsive'
-import {routes} from './route/configs'
+import {routes} from './_route/configs'
 
 
 class App extends Component {

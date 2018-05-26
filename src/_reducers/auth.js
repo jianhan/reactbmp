@@ -1,4 +1,4 @@
-import * as ats from '../actions/actionTypes'
+import * as ats from '../_actions/actionTypes'
 
 const auth = (state = {}, action) => {
     switch (action.type) {
