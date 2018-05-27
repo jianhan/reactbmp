@@ -7,9 +7,12 @@ import _ from 'lodash'
 const userService = {
     getUserByToken,
     isAuthenticated,
+    clearAuthStorage,
+    generateUser,
+    setAuthUser
 }
 
-function getUserByToken(access_token) {
+const getUserByToken = (access_token) => {
     return axios.get(PASSPORT_API_URL + '/api/user', {headers: {'Authorization': 'Bearer ' + access_token}}).then(r => {
         const user = {'email': r.data.email, 'name': r.data.name, 'avatar': r.data.avatar, 'access_token': access_token}
         setAuthData(
@@ -34,14 +37,34 @@ const isAuthenticated = () => {
     }
 
     // check expireAt
-    const expireAt = _.get(user, 'expire_at', false)
-    if (expireAt && _.isInteger(expireAt)) {
+    const expireAt = _.get(user, 'expire_at', null)
+    if (!_.isNull(expireAt) && _.isInteger(expireAt)) {
         if (moment().unix() > parseInt(expireAt)) {
             return false
         }
     }
 
     return true
+}
+
+const clearAuthStorage = () => {
+    localStorage.removeItem('user')
+}
+
+const generateUser = (id, email, name, avatar, access_token, refresh_token = null, expire_at = null) => {
+    return {
+        id,
+        email,
+        name,
+        avatar,
+        access_token,
+        refresh_token,
+        expire_at
+    }
+}
+
+const setAuthUser = (user = {}) => {
+    localStorage.setItem('user', user)
 }
 
 export default userService
