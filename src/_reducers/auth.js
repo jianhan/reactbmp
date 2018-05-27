@@ -1,6 +1,8 @@
 import {userTypes} from "../_actions/actionTypes"
+import userService from '../_services/user'
 
-let user = JSON.parse(localStorage.getItem('user'));
+let user = userService.getAuthUser()
+
 const initialState = user ? {isLoggingIn: false, loginError: '', user} : {};
 
 const auth = (state = initialState, action) => {

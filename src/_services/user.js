@@ -1,31 +1,36 @@
 import axios from 'axios'
-import {setAuthData} from '../_common/auth'
 import {PASSPORT_API_URL} from '../.env.js'
+import moment from 'moment'
 import _ from 'lodash'
 
 
 const userService = {
     getUserByToken,
     isAuthenticated,
-    clearAuthStorage,
+    clearAuthUser,
     generateUser,
-    setAuthUser
+    setAuthUser,
+    getAuthUser
 }
 
-const getUserByToken = (access_token) => {
+function getUserByToken(access_token) {
+    clearAuthUser()
     return axios.get(PASSPORT_API_URL + '/api/user', {headers: {'Authorization': 'Bearer ' + access_token}}).then(r => {
-        const user = {'email': r.data.email, 'name': r.data.name, 'avatar': r.data.avatar, 'access_token': access_token}
-        setAuthData(
-            access_token,
-            user
-        )
+        const user = {
+            'id': r.data.id,
+            'email': r.data.email,
+            'name': r.data.name,
+            'avatar': r.data.avatar,
+            'access_token': access_token
+        }
+        this.setAuthUser(user)
         return user
     }).catch(e => {
-        throw 'Invalid token'
+        throw 'Invalid token, unable to get user.'
     })
 }
 
-const isAuthenticated = () => {
+function isAuthenticated() {
     const user = localStorage.getItem('user')
     if (user === null || user === '') {
         return false
@@ -47,11 +52,11 @@ const isAuthenticated = () => {
     return true
 }
 
-const clearAuthStorage = () => {
+function clearAuthUser() {
     localStorage.removeItem('user')
 }
 
-const generateUser = (id, email, name, avatar, access_token, refresh_token = null, expire_at = null) => {
+function generateUser(id, email, name, avatar, access_token, refresh_token = null, expire_at = null) {
     return {
         id,
         email,
@@ -63,8 +68,12 @@ const generateUser = (id, email, name, avatar, access_token, refresh_token = nul
     }
 }
 
-const setAuthUser = (user = {}) => {
-    localStorage.setItem('user', user)
+function setAuthUser(user = {}) {
+    localStorage.setItem('user', JSON.stringify(user))
+}
+
+function getAuthUser() {
+    return JSON.parse(localStorage.getItem('user'))
 }
 
 export default userService
