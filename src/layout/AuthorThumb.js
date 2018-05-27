@@ -71,7 +71,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onLogoutClick: (e) => {
             e.preventDefault()
-            dispatch(userActions.logout)
+            dispatch(userActions.logout())
             history.push('/')
         }
     }
