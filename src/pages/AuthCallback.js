@@ -1,27 +1,15 @@
 import React from 'react'
-import axios from 'axios'
-import {PASSPORT_API_URL} from '../.env.js'
-import {setAuthData} from '../_common/auth'
+import {userActions} from "../_actions/user";
+import {connect} from 'react-redux'
 
-export default class AuthCallback extends React.Component {
+class AuthCallback extends React.Component {
 
     constructor(props) {
         super(props)
     }
 
     componentDidMount() {
-        axios.get(PASSPORT_API_URL + '/api/user', {headers: {'Authorization': 'Bearer ' + this.props.match.params.access_token}}).then(r => {
-            try {
-                setAuthData(
-                    this.props.match.params.access_token,
-                    {'email': r.data.email, 'name': r.data.name, 'avatar': r.data.avatar}
-                )
-            } catch (e) {
-
-            }
-        }).catch(e => {
-
-        })
+        this.props.dispatch(userActions.getUser(this.props.match.params.access_token))
     }
 
     render() {
@@ -31,7 +19,7 @@ export default class AuthCallback extends React.Component {
                     <div className="ui-block-title">
                         <h4 className="title">Authenticating</h4>
                     </div>
-                    <div className="ui-block-content" style={{"text-align": 'center'}}>
+                    <div className="ui-block-content" style={{"textAlign": 'center'}}>
                         <i className="fas fa-spinner fa-spin fa-4x"></i>
                     </div>
                 </div>
@@ -40,3 +28,5 @@ export default class AuthCallback extends React.Component {
     }
 
 }
+
+export default connect()(AuthCallback)

@@ -38,7 +38,7 @@ export function clearAuthData() {
 }
 
 export function setAuthData(accessToken, user = {}, expireIn = false, refreshToken = false) {
-    if (accessToken == '') {
+    if (accessToken === '') {
         throw 'Empty access token'
     }
     if (_.isEmpty(user)) {
