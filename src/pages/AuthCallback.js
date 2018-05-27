@@ -20,6 +20,7 @@ class AuthCallback extends React.Component {
                         <h4 className="title">Authenticating</h4>
                     </div>
                     <div className="ui-block-content" style={{"textAlign": 'center'}}>
+                        {console.log(this.props.isLoggingIn)}
                         <i className="fas fa-spinner fa-spin fa-4x"></i>
                     </div>
                 </div>
@@ -29,4 +30,10 @@ class AuthCallback extends React.Component {
 
 }
 
-export default connect()(AuthCallback)
+const mapSateToProps = state => ({
+    isLoggingIn: state.auth.isLoggingIn,
+    loginError: state.auth.loginError,
+})
+
+
+export default connect(mapSateToProps)(AuthCallback)

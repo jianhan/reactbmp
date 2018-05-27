@@ -1,4 +1,4 @@
-import {userTypes} from "./actionTypes";
+import {userTypes} from "./actionTypes"
 import userService from '../_services/user'
 
 export const userActions = {
