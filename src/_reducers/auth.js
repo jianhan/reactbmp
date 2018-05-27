@@ -25,6 +25,12 @@ const auth = (state = initialState, action) => {
                 loginError: action.error,
                 user: null,
             }
+        case userTypes.USER_LOGOUT:
+            return {
+                isLoggingIn: false,
+                loginError: '',
+                user: null,
+            }
         default:
             return state
     }

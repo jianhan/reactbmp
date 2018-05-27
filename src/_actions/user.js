@@ -1,8 +1,10 @@
 import {userTypes} from "./actionTypes"
 import userService from '../_services/user'
+import history from '../_common/history'
 
 export const userActions = {
-    getUser
+    getUser,
+    logout
 }
 
 function getUser(token) {
@@ -10,8 +12,9 @@ function getUser(token) {
         dispatch(request());
         userService.getUserByToken(token).then(user => {
             dispatch(success(user))
-        }).catch(error => {
-            dispatch(failure(error))
+            history.push('/auth')
+        }).catch(e => {
+            dispatch(failure('Invalid token, unable to retrieve user'))
         })
     };
 
@@ -28,3 +31,7 @@ function getUser(token) {
     }
 }
 
+function logout() {
+    userService.clearAuthUser();
+    return {type: userTypes.USER_LOGOUT};
+}

@@ -7,18 +7,24 @@ import registerServiceWorker from './registerServiceWorker'
 import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './_reducers/index'
+import {Router} from 'react-router-dom'
+import history from './_common/history'
+import {routerMiddleware} from 'react-router-redux'
 
 const loggerMiddleware = createLogger()
 const store = createStore(
     rootReducer,
     applyMiddleware(
         thunkMiddleware,
-        loggerMiddleware
+        loggerMiddleware,
+        routerMiddleware(history),
     )
 )
 
 ReactDOM.render(
-    <Root store={store}/>,
+    <Router history={history}>
+        <Root store={store}/>
+    </Router>,
     document.getElementById('root'),
 );
 registerServiceWorker();

@@ -1,7 +1,7 @@
 import React from 'react'
-import {userActions} from "../_actions/user";
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router'
+import {userActions} from "../_actions/user";
+import {withRouter} from 'react-router-dom'
 
 class AuthCallback extends React.Component {
 
@@ -10,7 +10,6 @@ class AuthCallback extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.isLoggingIn)
         this.props.dispatch(userActions.getUser(this.props.match.params.access_token))
     }
 
@@ -25,14 +24,11 @@ class AuthCallback extends React.Component {
                         {this.props.isLoggingIn &&
                         <i className="fas fa-spinner fa-spin fa-4x"></i>
                         }
-                        {this.props.loginError !== "" ? (
+                        {this.props.loginError !== "" && (
                             <div className="alert alert-danger" role="alert">
                                 <h4>{this.props.loginError}</h4>
                             </div>
-                        ) : (
-                            <Redirect to="/"/>
                         )}
-
                     </div>
                 </div>
             </div>
@@ -47,4 +43,4 @@ const mapSateToProps = state => ({
 })
 
 
-export default connect(mapSateToProps)(AuthCallback)
+export default withRouter(connect(mapSateToProps)(AuthCallback))

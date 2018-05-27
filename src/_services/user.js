@@ -25,8 +25,6 @@ function getUserByToken(access_token) {
         }
         this.setAuthUser(user)
         return user
-    }).catch(e => {
-        throw 'Invalid token, unable to get user.'
     })
 }
 
