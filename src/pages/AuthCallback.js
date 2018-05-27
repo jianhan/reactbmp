@@ -9,7 +9,7 @@ class AuthCallback extends React.Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(userActions.getUser(this.props.match.params.access_token))
+        this.props.dispatch(userActions.getUser(this.props.match.params.access_token + "testtes"))
     }
 
     render() {
@@ -20,8 +20,10 @@ class AuthCallback extends React.Component {
                         <h4 className="title">Authenticating</h4>
                     </div>
                     <div className="ui-block-content" style={{"textAlign": 'center'}}>
-                        {console.log(this.props.isLoggingIn)}
+                        {this.props.isLoggingIn > 0 &&
                         <i className="fas fa-spinner fa-spin fa-4x"></i>
+                        }
+
                     </div>
                 </div>
             </div>

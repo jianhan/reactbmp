@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {PASSPORT_API_URL} from '../.env'
-import {isAuthenticated} from './Auth'
+import {isAuthenticated} from './auth'
 import _ from 'lodash'
 
 export function http() {
@@ -20,6 +20,7 @@ export function http() {
 export function errorMsg(response, returnRawMessage = false) {
     const status = _.get(response, 'response.data.status_code', 0)
     const message = _.get(response, 'response.data.message', '')
+
     if (status === 400) {
         return returnRawMessage ? message : 'Bad request, system is unable to process.'
     } else if (status === 422) {
