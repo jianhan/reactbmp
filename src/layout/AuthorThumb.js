@@ -28,7 +28,7 @@ class AuthorThumb extends React.Component {
                                     </div>
                                     <ul className="account-settings">
                                         <li>
-                                            <a onClick={this.props.onLogoutClick}>
+                                            <a href="" onClick={this.props.onLogoutClick}>
                                                 <svg className="olymp-logout-icon">
                                                     <use
                                                         xlinkHref="svg-icons/sprites/icons.svg#olymp-logout-icon"></use>
