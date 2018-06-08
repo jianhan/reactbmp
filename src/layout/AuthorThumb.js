@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {userActions} from '../_actions/user'
 import PropTypes from 'prop-types'
-import history from '../_common/history'
 import _ from 'lodash'
 
 class AuthorThumb extends React.Component {
@@ -71,8 +69,8 @@ const mapDispatchToProps = dispatch => {
     return {
         onLogoutClick: (e) => {
             e.preventDefault()
-            dispatch(userActions.logout())
-            history.push('/')
+            // dispatch(userActions.logout())
+            // history.push('/')
         }
     }
 }
