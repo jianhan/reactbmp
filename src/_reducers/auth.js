@@ -1,6 +1,7 @@
 import {userTypes} from "../_actions/actionTypes"
 
-const initialState = null ? {isLoggingIn: false, loginError: '', user: null} : {};
+// set initial state
+const initialState = {isLoggingIn: false, loginError: '', user: null}
 
 const auth = (state = initialState, action) => {
     switch (action.type) {
@@ -9,6 +10,12 @@ const auth = (state = initialState, action) => {
                 isLoggingIn: false,
                 loginError: '',
                 user: null,
+            }
+        case userTypes.USER_LOGIN_SUCCESS:
+            return {
+                isLoggingIn: false,
+                loginError: '',
+                user: action.user,
             }
         default:
             return state

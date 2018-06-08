@@ -1,14 +1,14 @@
 import * as ats from './actionTypes'
 
-export const toggleLeftSideBar = () => {
+export const toggleLeftSideBar = () => ({
     type: ats.TOGGLE_LEFT_SIDEBAR
-}
+})
 
-export const login = user => {
-    type: ats.LOGIN,
-        user
-}
+export const userLoginSuccess = user => ({
+    type: ats.userTypes.USER_LOGIN_SUCCESS,
+    user
+})
 
-export const logout = () => {
-    type: ats.LOGOUT
-}
+export const userLogout = () => ({
+    type: ats.userTypes.USER_LOGOUT
+})
