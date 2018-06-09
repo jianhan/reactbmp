@@ -35,6 +35,7 @@ class App extends Component {
 
     componentDidMount() {
         auth.onAuthStateChanged(user => {
+            console.log(user)
             user.getIdToken().then(r => {
                 user.idToken = r
                 this.props.loginSuccess(user)
