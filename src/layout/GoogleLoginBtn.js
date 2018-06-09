@@ -1,6 +1,6 @@
 import React from 'react'
 import fb from 'firebase'
-import {auth} from '../firebase/firebase'
+import {auth} from '../_firebase/firebase'
 import {mapLoginToProps, mapUserToProp} from '../_maps/auth'
 import {connect} from 'react-redux'
 
@@ -12,8 +12,8 @@ class GoogleLoginBtn extends React.Component {
     }
 
     loginClicked() {
-        var provider = new fb.auth.GoogleAuthProvider()
-        auth.signInWithPopup(provider).then(function (result) {
+        const provider = new fb.auth.GoogleAuthProvider()
+        auth.signInWithPopup(provider).then(result => {
             if (result.credential) {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 var token = result.credential.accessToken;
@@ -23,7 +23,7 @@ class GoogleLoginBtn extends React.Component {
             // The signed-in user info.
             var user = result.user;
             console.log(user)
-        }).catch(function (error) {
+        }).catch(error => {
             console.log(error)
             // Handle Errors here.
             var errorCode = error.code;

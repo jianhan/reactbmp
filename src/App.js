@@ -6,7 +6,7 @@ import FixedSideBar from './layout/FixedSideBar'
 import FixedSideBarResponsive from './layout/FixedSideBarResponsive'
 import {routes} from './_route/configs'
 import {mapLoginToProps, mapUserToProp} from './_maps/auth'
-import {auth} from './firebase/firebase'
+import {auth} from './_firebase/firebase'
 import {connect} from 'react-redux'
 
 class App extends Component {

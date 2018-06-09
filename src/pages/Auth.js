@@ -1,5 +1,7 @@
 import React from 'react'
 import GoogleLoginBtn from '../layout/GoogleLoginBtn'
+import LogoutBtn from '../_containers/LogoutBtn'
+
 
 class Auth extends React.Component {
     constructor(props) {
@@ -11,6 +13,7 @@ class Auth extends React.Component {
             test
             <GoogleLoginBtn/>
             <div id={"firebaseui-auth-container"}>testdiv</div>
+            <LogoutBtn/>
         </form>
     }
 
