@@ -1,4 +1,4 @@
-import {userTypes} from "../_actions/actionTypes"
+import {userTypes} from "../_actions/index"
 
 // set initial state
 const initialState = {isLoggingOut: false, logoutError: ''}

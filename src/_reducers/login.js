@@ -1,11 +1,10 @@
-import {userTypes} from "../_actions/actionTypes"
+import {userTypes} from "../_actions/index"
 
 // set initial state
 const initialState = {isLoggingIn: false, loginError: '', user: null}
 
 const login = (state = initialState, action) => {
     switch (action.type) {
-        // LOGIN
         case userTypes.USER_LOGIN_REQUEST:
             return Object.assign({}, state, {
                 isLoggingIn: true,
