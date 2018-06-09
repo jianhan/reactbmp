@@ -1,17 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LogoutBtn = ({onClick}) => {
-    return (
-        <a href="" onClick={e => {
-            e.preventDefault()
-            onClick()
-        }}>Logout</a>
-    )
-}
+const LogoutBtn = ({user, userLogout}) => (
+    <a href="" onClick={e => {
+        e.preventDefault()
+        userLogout()
+    }}>Logout</a>
+)
 
 LogoutBtn.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    userLogout: PropTypes.func.isRequired,
 }
 
 export default LogoutBtn
