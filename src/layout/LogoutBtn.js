@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LogoutBtn = ({userLogout}) => (
+const LogoutBtn = ({doUserLogout}) => (
     <a href="" onClick={e => {
         e.preventDefault()
-        userLogout()
+        doUserLogout()
     }}>Logout</a>
 )
 
