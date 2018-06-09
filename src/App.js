@@ -5,8 +5,9 @@ import HeaderResponsive from './layout/HeaderResponsive'
 import FixedSideBar from './layout/FixedSideBar'
 import FixedSideBarResponsive from './layout/FixedSideBarResponsive'
 import {routes} from './_route/configs'
-import {mapLoginToProps, mapUserToProp} from './_maps/auth'
+import {mapUserDispatchesToProps, mapUserToProp} from './_maps/auth'
 import {connect} from 'react-redux'
+import {auth} from './_firebase/firebase'
 
 class App extends Component {
     render() {
@@ -31,21 +32,21 @@ class App extends Component {
         );
     }
 
-    // componentDidMount() {
-    //     auth.onAuthStateChanged(user => {
-    //         if (user !== null) {
-    //             user.getIdToken().then(r => {
-    //                 user.idToken = r
-    //                 this.props.loginSuccess(user)
-    //             })
-    //         } else {
-    //             this.props.logoutSuccess()
-    //         }
-    //     });
-    // }
+    componentDidMount() {
+        auth.onAuthStateChanged(user => {
+            if (user !== null) {
+                user.getIdToken().then(r => {
+                    user.idToken = r
+                    this.props.setUser(user)
+                })
+            } else {
+                this.props.removeUser()
+            }
+        });
+    }
 }
 
 export default connect(
     mapUserToProp,
-    mapLoginToProps,
+    mapUserDispatchesToProps,
 )(App)
