@@ -9,6 +9,9 @@ export const mapLoginToProps = dispatch => {
     return {
         loginSuccess: user => {
             dispatch(login.userLoginSuccess(user))
+        },
+        logoutSuccess: user => {
+            dispatch(logout.userLogoutSuccess())
         }
     }
 }
