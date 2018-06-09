@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
 import sidebarVisibility from './sidebarVisibility'
-import auth from './auth'
+import login from './auth'
 
 export default combineReducers({
     sidebarVisibility,
-    auth
+    login,
 })

@@ -6,17 +6,38 @@ export const toggleLeftSideBar = () => ({
     type: ats.TOGGLE_LEFT_SIDEBAR
 })
 
+// LOGIN
+export const userLoginRequest = () => ({
+    type: ats.userTypes.USER_LOGIN_REQUEST,
+})
+
 export const userLoginSuccess = user => ({
     type: ats.userTypes.USER_LOGIN_SUCCESS,
     user
 })
 
-export const userLogout = () => ({
-    type: ats.userTypes.USER_LOGOUT
+export const userLoginFailure = error => ({
+    type: ats.userTypes.USER_LOGIN_FAILURE,
+    error
+})
+
+// LOGOUT
+export const userLogoutRequest = () => ({
+    type: ats.userTypes.USER_LOGOUT_REQUEST,
+})
+
+export const userLogoutSuccess = () => ({
+    type: ats.userTypes.USER_LOGOUT_SUCCESS,
+})
+
+export const userLogoutFailure = error => ({
+    type: ats.userTypes.USER_LOGOUT_FAILURE,
+    error
 })
 
 export const userLogout = () => {
     return (dispatch) => {
+        dispatch(userLogoutRequest)
         auth.signOut().then(r => {
             console.log(r)
         }).catch(e => {
