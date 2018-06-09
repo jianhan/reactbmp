@@ -9,7 +9,7 @@ const LogoutBtn = ({doUserLogout}) => (
 )
 
 LogoutBtn.propTypes = {
-    userLogout: PropTypes.func.isRequired,
+    doUserLogout: PropTypes.func.isRequired,
 }
 
 export default LogoutBtn

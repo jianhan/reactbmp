@@ -61,7 +61,7 @@ AuthorThumb.propTypes = {
 }
 
 const mapSateToProps = state => ({
-    user: state.auth.user,
+    user: state.user.user,
 })
 
 

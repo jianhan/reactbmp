@@ -1,17 +1,19 @@
-import * as ats from "./actionTypes";
+import {loginTypes} from "./actionTypes";
+import {auth} from '../_firebase'
+import fb from 'firebase'
 
 // LOGIN
 export const userLoginRequest = () => ({
-    type: ats.userTypes.USER_LOGIN_REQUEST,
+    type: loginTypes.USER_LOGIN_REQUEST
 })
 
 export const userLoginSuccess = user => ({
-    type: ats.userTypes.USER_LOGIN_SUCCESS,
+    type: loginTypes.USER_LOGIN_SUCCESS,
     user
 })
 
 export const userLoginFailure = error => ({
-    type: ats.userTypes.USER_LOGIN_FAILURE,
+    type: loginTypes.USER_LOGIN_FAILURE,
     error
 })
 

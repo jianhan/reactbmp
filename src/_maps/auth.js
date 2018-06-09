@@ -1,14 +1,14 @@
-import {doUserLogout, userLoginSuccess} from "../_actions/actionCreators";
+import {login, logout} from '../_actions/index'
 
 export const mapUserToProp = state => ({
-    user: state.auth.user,
+    user: state.user.user,
 })
 
 
 export const mapLoginToProps = dispatch => {
     return {
         loginSuccess: user => {
-            dispatch(userLoginSuccess(user))
+            dispatch(login.userLoginSuccess(user))
         }
     }
 }
@@ -16,7 +16,7 @@ export const mapLoginToProps = dispatch => {
 export const mapUserLogoutToProps = dispatch => {
     return {
         doUserLogout: () => {
-            dispatch(doUserLogout())
+            dispatch(logout.doUserLogout())
         }
     }
 }

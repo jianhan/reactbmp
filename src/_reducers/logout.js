@@ -1,4 +1,4 @@
-import {userTypes} from "../_actions/index"
+import {actionTypes} from "../_actions/index"
 
 // set initial state
 const initialState = {isLoggingOut: false, logoutError: ''}
@@ -6,17 +6,17 @@ const initialState = {isLoggingOut: false, logoutError: ''}
 const logout = (state = initialState, action) => {
     switch (action.type) {
         // LOGOUT
-        case userTypes.USER_LOGOUT_REQUEST:
+        case actionTypes.userTypes.USER_LOGOUT_REQUEST:
             return Object.assign({}, state, {
                 isLoggingOut: true,
                 logoutError: '',
             })
-        case userTypes.USER_LOGOUT_SUCCESS:
+        case actionTypes.userTypes.USER_LOGOUT_SUCCESS:
             return Object.assign({}, state, {
                 isLoggingOut: false,
                 logoutError: '',
             })
-        case userTypes.USER_LOGIN_FAILURE:
+        case actionTypes.userTypes.USER_LOGIN_FAILURE:
             return Object.assign({}, state, {
                 isLoggingOut: false,
                 logoutError: action.error,

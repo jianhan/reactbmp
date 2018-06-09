@@ -1,25 +1,28 @@
-import * as ats from "./actionTypes";
+import {logoutTypes} from "./actionTypes"
+import {removeUser} from "./user"
+import {auth} from '../_firebase'
 
 // LOGOUT
 export const userLogoutRequest = () => ({
-    type: ats.userTypes.USER_LOGOUT_REQUEST,
+    type: logoutTypes.USER_LOGOUT_REQUEST,
 })
 
 export const userLogoutSuccess = () => ({
-    type: ats.userTypes.USER_LOGOUT_SUCCESS,
+    type: logoutTypes.USER_LOGOUT_SUCCESS,
 })
 
 export const userLogoutFailure = error => ({
-    type: ats.userTypes.USER_LOGOUT_FAILURE,
+    type: logoutTypes.USER_LOGOUT_FAILURE,
     error
 })
 
 
 export const doUserLogout = () => {
     return (dispatch) => {
+        console.log(userLogoutRequest())
         dispatch(userLogoutRequest())
         auth.signOut().then(r => {
-            dispatch(userLogoutSuccess())
+            dispatch(userLogoutSuccess()).dispatch(removeUser())
         }).catch(e => {
             dispatch(userLogoutFailure(e))
         })
