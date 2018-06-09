@@ -21,7 +21,8 @@ export const doUserLogout = () => {
     return (dispatch) => {
         dispatch(userLogoutRequest())
         auth.signOut().then(r => {
-            dispatch(userLogoutSuccess()).dispatch(removeUser())
+            dispatch(userLogoutSuccess())
+            dispatch(removeUser())
         }).catch(e => {
             dispatch(userLogoutFailure(e))
         })

@@ -6,7 +6,6 @@ import FixedSideBar from './layout/FixedSideBar'
 import FixedSideBarResponsive from './layout/FixedSideBarResponsive'
 import {routes} from './_route/configs'
 import {mapLoginToProps, mapUserToProp} from './_maps/auth'
-import {auth} from './_firebase/firebase'
 import {connect} from 'react-redux'
 
 class App extends Component {
@@ -32,18 +31,18 @@ class App extends Component {
         );
     }
 
-    componentDidMount() {
-        auth.onAuthStateChanged(user => {
-            if (user !== null) {
-                user.getIdToken().then(r => {
-                    user.idToken = r
-                    this.props.loginSuccess(user)
-                })
-            } else {
-                this.props.logoutSuccess()
-            }
-        });
-    }
+    // componentDidMount() {
+    //     auth.onAuthStateChanged(user => {
+    //         if (user !== null) {
+    //             user.getIdToken().then(r => {
+    //                 user.idToken = r
+    //                 this.props.loginSuccess(user)
+    //             })
+    //         } else {
+    //             this.props.logoutSuccess()
+    //         }
+    //     });
+    // }
 }
 
 export default connect(

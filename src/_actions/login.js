@@ -1,15 +1,15 @@
 import {loginTypes} from "./actionTypes";
 import {auth} from '../_firebase/firebase'
 import fb from 'firebase'
+import {removeUser, setUser} from "./user"
 
 // LOGIN
 export const userLoginRequest = () => ({
     type: loginTypes.USER_LOGIN_REQUEST
 })
 
-export const userLoginSuccess = user => ({
+export const userLoginSuccess = () => ({
     type: loginTypes.USER_LOGIN_SUCCESS,
-    user
 })
 
 export const userLoginFailure = error => ({
@@ -18,22 +18,23 @@ export const userLoginFailure = error => ({
 })
 
 export const doPopupLogin = provider => {
-    return function (dispatch) {
+    return dispatch => {
         dispatch(userLoginRequest())
         const provider = new fb.auth.GoogleAuthProvider()
         auth.signInWithPopup(provider).then(result => {
+            let user = result.user
             if (result.credential) {
-                var token = result.credential.accessToken
-                alert(token)
+                user.idToken = result.credential.accessToken
+                dispatch(userLoginSuccess())
+                dispatch(setUser(user))
+            } else {
+                dispatch(userLoginFailure({
+                    message: 'Credential not set'
+                }))
             }
-            var user = result.user;
-            console.log(user)
         }).catch(error => {
-            console.log(error)
-            var errorCode = error.code;
-            var errorMessage = error.message
-            var email = error.email;
-            var credential = error.credential
+            dispatch(userLoginFailure(error))
+            dispatch(removeUser())
         });
     }
 }
