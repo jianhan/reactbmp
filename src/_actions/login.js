@@ -19,6 +19,7 @@ export const userLoginFailure = error => ({
 
 export const doPopupLogin = provider => {
     return function (dispatch) {
+        dispatch(userLoginRequest())
         const provider = new fb.auth.GoogleAuthProvider()
         auth.signInWithPopup(provider).then(result => {
             if (result.credential) {

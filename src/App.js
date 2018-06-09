@@ -40,7 +40,7 @@ class App extends Component {
                     this.props.loginSuccess(user)
                 })
             } else {
-                this.props.loginSuccess()
+                this.props.logoutSuccess()
             }
         });
     }

@@ -19,7 +19,6 @@ export const userLogoutFailure = error => ({
 
 export const doUserLogout = () => {
     return (dispatch) => {
-        console.log(userLogoutRequest())
         dispatch(userLogoutRequest())
         auth.signOut().then(r => {
             dispatch(userLogoutSuccess()).dispatch(removeUser())

@@ -1,4 +1,4 @@
-import {actionTypes} from "../_actions/index"
+import {actionTypes} from "../_actions"
 
 // set initial state
 const initialState = {user: null}
@@ -9,7 +9,7 @@ const user = (state = initialState, action) => {
             return Object.assign({}, state, {
                 user: action.user,
             })
-        case actionTypes.REMOVE_USER:
+        case actionTypes.userTypes.REMOVE_USER:
             return Object.assign({}, state, {
                 user: null,
             })
