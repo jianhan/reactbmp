@@ -1,5 +1,5 @@
 import {loginTypes} from "./actionTypes";
-import {auth} from '../_firebase'
+import {auth} from '../_firebase/firebase'
 import fb from 'firebase'
 
 // LOGIN
@@ -17,7 +17,7 @@ export const userLoginFailure = error => ({
     error
 })
 
-export const popupLogin = provider => {
+export const doPopupLogin = provider => {
     return function (dispatch) {
         const provider = new fb.auth.GoogleAuthProvider()
         auth.signInWithPopup(provider).then(result => {

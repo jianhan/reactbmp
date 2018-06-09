@@ -1,4 +1,4 @@
-import {login, logout} from '../_actions/index'
+import {login, logout} from '../_actions'
 
 export const mapUserToProp = state => ({
     user: state.user.user,
@@ -20,6 +20,14 @@ export const mapUserLogoutToProps = dispatch => {
     return {
         doUserLogout: () => {
             dispatch(logout.doUserLogout())
+        }
+    }
+}
+
+export const mapDoPopupLoginToProps = dispatch => {
+    return {
+        doPopupLogin: provider => {
+            dispatch(login.doPopupLogin(provider))
         }
     }
 }
