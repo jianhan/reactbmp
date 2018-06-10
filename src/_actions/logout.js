@@ -1,5 +1,4 @@
 import {logoutTypes} from "./actionTypes"
-import {removeUser} from "./user"
 import {auth} from '../_firebase'
 
 // LOGOUT
@@ -22,7 +21,6 @@ export const doUserLogout = () => {
         dispatch(userLogoutRequest())
         auth.signOut().then(r => {
             dispatch(userLogoutSuccess())
-            dispatch(removeUser())
         }).catch(e => {
             dispatch(userLogoutFailure(e))
         })

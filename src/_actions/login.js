@@ -1,7 +1,6 @@
 import {loginTypes} from "./actionTypes";
 import {auth} from '../_firebase/firebase'
 import fb from 'firebase'
-import {removeUser, setUser} from "./user"
 
 // LOGIN
 export const userLoginRequest = () => ({
@@ -26,7 +25,6 @@ export const doPopupLogin = provider => {
             if (result.credential) {
                 user.idToken = result.credential.accessToken
                 dispatch(userLoginSuccess())
-                dispatch(setUser(user))
             } else {
                 dispatch(userLoginFailure({
                     message: 'Credential not set'
@@ -34,7 +32,6 @@ export const doPopupLogin = provider => {
             }
         }).catch(error => {
             dispatch(userLoginFailure(error))
-            dispatch(removeUser())
         });
     }
 }
