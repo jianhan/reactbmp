@@ -1,6 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {userActions} from "../_actions/user";
+import {userActions} from "../_actions/auth"
 import {withRouter} from 'react-router-dom'
 
 class AuthCallback extends React.Component {
@@ -21,14 +20,6 @@ class AuthCallback extends React.Component {
                         <h3 className="title">Authenticating</h3>
                     </div>
                     <div className="ui-block-content" style={{"textAlign": 'center'}}>
-                        {this.props.isLoggingIn &&
-                        <i className="fas fa-spinner fa-spin fa-4x"></i>
-                        }
-                        {this.props.loginError !== "" && (
-                            <div className="alert alert-danger" role="alert">
-                                <h4>{this.props.loginError}</h4>
-                            </div>
-                        )}
                     </div>
                 </div>
             </div>
@@ -43,4 +34,4 @@ const mapSateToProps = state => ({
 })
 
 
-export default withRouter(connect(mapSateToProps)(AuthCallback))
+export default withRouter(AuthCallback)

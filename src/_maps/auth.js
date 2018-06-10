@@ -1,16 +1,17 @@
-import {login, logout, user} from '../_actions'
+import {auth, login, logout} from '../_actions'
+import _ from 'lodash'
 
 export const mapUserToProp = state => ({
-    user: state.user.user,
+    user: _.isEmpty(state.auth) ? null : state.auth.user,
 })
 
 export const mapUserDispatchesToProps = dispatch => {
     return {
         setUser: u => {
-            dispatch(user.setUser(u))
+            dispatch(auth.setUser(u))
         },
         removeUser: () => {
-            dispatch(user.removeUser())
+            dispatch(auth.removeUser())
         }
     }
 }

@@ -1,11 +1,11 @@
 import * as login from './login'
 import * as logout from './logout'
-import * as user from './user'
+import * as auth from './auth'
 import * as actionTypes from './actionTypes'
 
 export {
     login,
     logout,
-    user,
+    auth,
     actionTypes
 };
